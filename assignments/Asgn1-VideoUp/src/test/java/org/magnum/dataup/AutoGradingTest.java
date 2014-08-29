@@ -1,47 +1,47 @@
 /*
- * 
+ *
  * Copyright 2014 Jules White
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *     http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- * 
+ *
  */
 package org.magnum.dataup;
 
 /**
  *                       DO NOT MODIFY THIS CLASS
- *                       
-                    ___                    ___           ___                            
-     _____         /\  \                  /\  \         /\  \                           
-    /::\  \       /::\  \                 \:\  \       /::\  \         ___              
-   /:/\:\  \     /:/\:\  \                 \:\  \     /:/\:\  \       /\__\             
-  /:/  \:\__\   /:/  \:\  \            _____\:\  \   /:/  \:\  \     /:/  /             
- /:/__/ \:|__| /:/__/ \:\__\          /::::::::\__\ /:/__/ \:\__\   /:/__/              
- \:\  \ /:/  / \:\  \ /:/  /          \:\~~\~~\/__/ \:\  \ /:/  /  /::\  \              
-  \:\  /:/  /   \:\  /:/  /            \:\  \        \:\  /:/  /  /:/\:\  \             
-   \:\/:/  /     \:\/:/  /              \:\  \        \:\/:/  /   \/__\:\  \            
-    \::/  /       \::/  /                \:\__\        \::/  /         \:\__\           
-     \/__/         \/__/                  \/__/         \/__/           \/__/           
-      ___           ___                                     ___                         
-     /\  \         /\  \         _____                     /\__\                        
-    |::\  \       /::\  \       /::\  \       ___         /:/ _/_         ___           
-    |:|:\  \     /:/\:\  \     /:/\:\  \     /\__\       /:/ /\__\       /|  |          
-  __|:|\:\  \   /:/  \:\  \   /:/  \:\__\   /:/__/      /:/ /:/  /      |:|  |          
- /::::|_\:\__\ /:/__/ \:\__\ /:/__/ \:|__| /::\  \     /:/_/:/  /       |:|  |          
- \:\~~\  \/__/ \:\  \ /:/  / \:\  \ /:/  / \/\:\  \__  \:\/:/  /      __|:|__|          
-  \:\  \        \:\  /:/  /   \:\  /:/  /   ~~\:\/\__\  \::/__/      /::::\  \          
-   \:\  \        \:\/:/  /     \:\/:/  /       \::/  /   \:\  \      ~~~~\:\  \         
-    \:\__\        \::/  /       \::/  /        /:/  /     \:\__\          \:\__\        
-     \/__/         \/__/         \/__/         \/__/       \/__/           \/__/        
+ *
+                    ___                    ___           ___
+     _____         /\  \                  /\  \         /\  \
+    /::\  \       /::\  \                 \:\  \       /::\  \         ___
+   /:/\:\  \     /:/\:\  \                 \:\  \     /:/\:\  \       /\__\
+  /:/  \:\__\   /:/  \:\  \            _____\:\  \   /:/  \:\  \     /:/  /
+ /:/__/ \:|__| /:/__/ \:\__\          /::::::::\__\ /:/__/ \:\__\   /:/__/
+ \:\  \ /:/  / \:\  \ /:/  /          \:\~~\~~\/__/ \:\  \ /:/  /  /::\  \
+  \:\  /:/  /   \:\  /:/  /            \:\  \        \:\  /:/  /  /:/\:\  \
+   \:\/:/  /     \:\/:/  /              \:\  \        \:\/:/  /   \/__\:\  \
+    \::/  /       \::/  /                \:\__\        \::/  /         \:\__\
+     \/__/         \/__/                  \/__/         \/__/           \/__/
+      ___           ___                                     ___
+     /\  \         /\  \         _____                     /\__\
+    |::\  \       /::\  \       /::\  \       ___         /:/ _/_         ___
+    |:|:\  \     /:/\:\  \     /:/\:\  \     /\__\       /:/ /\__\       /|  |
+  __|:|\:\  \   /:/  \:\  \   /:/  \:\__\   /:/__/      /:/ /:/  /      |:|  |
+ /::::|_\:\__\ /:/__/ \:\__\ /:/__/ \:|__| /::\  \     /:/_/:/  /       |:|  |
+ \:\~~\  \/__/ \:\  \ /:/  / \:\  \ /:/  / \/\:\  \__  \:\/:/  /      __|:|__|
+  \:\  \        \:\  /:/  /   \:\  /:/  /   ~~\:\/\__\  \::/__/      /::::\  \
+   \:\  \        \:\/:/  /     \:\/:/  /       \::/  /   \:\  \      ~~~~\:\  \
+    \:\__\        \::/  /       \::/  /        /:/  /     \:\__\          \:\__\
+     \/__/         \/__/         \/__/         \/__/       \/__/           \/__/
  */
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -74,7 +74,7 @@ public class AutoGradingTest {
 
 	private File testVideoData = new File(
 			"src/test/resources/test.mp4");
-	
+
 	private Video video = Video.create().withContentType("video/mp4")
 			.withDuration(123).withSubject(UUID.randomUUID().toString())
 			.withTitle(UUID.randomUUID().toString()).build();
@@ -109,7 +109,7 @@ public class AutoGradingTest {
 		assertTrue(received.getId() > 0);
 		assertTrue(received.getDataUrl() != null);
 	}
-	
+
 	@Rubric(
 			value="The list of videos is updated after an add",
 			goal="The goal of this evaluation is to ensure that your Spring controller(s) "
@@ -128,7 +128,7 @@ public class AutoGradingTest {
 		Collection<Video> stored = videoSvc.getVideoList();
 		assertTrue(stored.contains(video));
 	}
-	
+
 	@Rubric(
 			value="Mpeg video data can be submitted for a video",
 			goal="The goal of this evaluation is to ensure that your Spring controller(s) "
@@ -145,19 +145,20 @@ public class AutoGradingTest {
 	@Test
 	public void testAddVideoData() throws Exception {
 		Video received = videoSvc.addVideo(video);
-		VideoStatus status = videoSvc.setVideoData(received.getId(),
+    System.out.println("received = " + received);
+    VideoStatus status = videoSvc.setVideoData(received.getId(),
 				new TypedFile(received.getContentType(), testVideoData));
 		assertEquals(VideoState.READY, status.getState());
-		
+
 		Response response = videoSvc.getData(received.getId());
 		assertEquals(200, response.getStatus());
-		
+
 		InputStream videoData = response.getBody().in();
 		byte[] originalFile = IOUtils.toByteArray(new FileInputStream(testVideoData));
 		byte[] retrievedFile = IOUtils.toByteArray(videoData);
 		assertTrue(Arrays.equals(originalFile, retrievedFile));
 	}
-	
+
 	@Rubric(
 			value="Requests for non-existant video data return a 404",
 			goal="The goal of this evaluation is to ensure that your Spring controller(s) "
@@ -171,9 +172,9 @@ public class AutoGradingTest {
 			)
 	@Test
 	public void testGetNonExistantVideosData() throws Exception {
-		
+
 		long nonExistantId = getInvalidVideoId();
-		
+
 		try{
 			Response r = videoSvc.getData(nonExistantId);
 			assertEquals(404, r.getStatus());
@@ -181,7 +182,7 @@ public class AutoGradingTest {
 			assertEquals(404, e.getResponse().getStatus());
 		}
 	}
-	
+
 	@Rubric(
 			value="Attempting to submit video data for a non-existant video generates a 404",
 			goal="The goal of this evaluation is to ensure that your Spring controller(s) "
@@ -211,7 +212,7 @@ public class AutoGradingTest {
 		for(Video v : stored){
 			ids.add(v.getId());
 		}
-		
+
 		long nonExistantId = Long.MIN_VALUE;
 		while(ids.contains(nonExistantId)){
 			nonExistantId++;
